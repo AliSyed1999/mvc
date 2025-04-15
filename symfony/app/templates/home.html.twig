@@ -1,0 +1,147 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+<main class="content">
+    <section class="section-intro">
+        <h2>Welcome Engineer</h2>
+        <p>Click the image to spin it using pure CSS. No scripts, just style.</p>
+    </section>
+
+    <section class="section-spin">
+        <input type="checkbox" id="spin-toggle" class="spin-toggle">
+        <label for="spin-toggle" class="spin-box">
+            <img src="{{ asset('img/Ali.jpg') }}" alt="Ali Image" class="spin-image">
+        </label>
+        <p class="note">Click to spin – click again to stop!</p>
+    </section>
+
+    <section class="section-glider">
+        <h3>Glider Preview</h3>
+        <a href="{{ asset('img/glider.svg') }}" target="_blank">
+            <img src="{{ asset('img/glider.svg') }}" alt="Glider Image" class="glider-image">
+        </a>
+    </section>
+</main>
+{% endblock %}
+
+{% block stylesheets %}
+<style>
+    :root {
+        --bg: #0f172a;
+        --panel: #1e293b;
+        --text: #e2e8f0;
+        --accent: #38bdf8;
+        --muted: #94a3b8;
+    }
+
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Fira Code', monospace;
+        background-color: var(--bg);
+        color: var(--text);
+        height: 100%;
+    }
+
+    .content {
+        padding: 40px;
+        background-color: #0f172a;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .section-intro h2 {
+        color: var(--accent);
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+
+    .section-intro p {
+        color: var(--muted);
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .section-spin {
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    .spin-box {
+        display: inline-block;
+        margin-top: 30px;
+        border-radius: 12px;
+        border: 1px solid #334155;
+        padding: 8px;
+        background: #1e293b;
+        box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+        cursor: pointer;
+    }
+
+    .spin-image {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 50%;
+        transition: transform 1s ease-in-out;
+    }
+
+    .spin-toggle {
+        display: none;
+    }
+
+    .spin-toggle:checked + .spin-box .spin-image {
+        transform: rotate(360deg);
+    }
+
+    .note {
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin-top: 10px;
+    }
+
+    .section-glider {
+        margin-top: 40px;
+        text-align: center;
+    }
+
+    .section-glider h3 {
+        color: var(--accent);
+        margin-bottom: 10px;
+    }
+
+    .glider-image {
+        width: 80px;
+        filter: brightness(1.2);
+    }
+
+    /* Responsiv Design */
+    @media (max-width: 768px) {
+        .content {
+            padding: 20px;
+        }
+
+        .section-intro h2 {
+            font-size: 2rem;
+        }
+
+        .section-intro p {
+            font-size: 0.9rem;
+        }
+
+        .spin-image {
+            width: 150px;
+            height: 150px;
+        }
+
+        .glider-image {
+            width: 60px;
+        }
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,93 @@
+/* Bakgrundsbild för hela sidan */
+body {
+    background: url('../images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    height: 200px;
+    background-color: rgba(0, 0, 0, 0.5); /* Skapar en mörk bakgrund för headern */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+h1 {
+    border-bottom: 4px double #ccc;
+    padding-bottom: 10px;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+/* Main content */
+main {
+    margin: 50px auto;
+    max-width: 800px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Lätt vit bakgrund för att göra texten mer läsbar */
+    border-radius: 10px;
+}
+
+/* Stil för textbeskrivning */
+p {
+    font-size: 1.2em;
+    color: #444;
+    text-align: center;
+}
+
+/* Skapa en container för att hantera snurrande effekt */
+.spin-container {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+.spin-toggle {
+    display: none; /* Dölj checkboxen */
+}
+
+/* Stil för bilden som snurrar */
+.spin-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    transition: transform 1s ease-in-out;
+    margin: 20px auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Skugga för effekt */
+}
+
+/* Snurrande animation när checkboxen är vald */
+.spin-toggle:checked + .spin-image {
+    transform: rotate(360deg);
+}
+
+/* För att göra länken utan standardstil */
+a {
+    text-decoration: none;
+}
+
+/* Visuellt snyggare när man hovrar över bilden */
+.spin-image:hover {
+    opacity: 0.8;
+}
+
+/* För att centrera innehållet i main */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Anpassa stil för text */
+h1, p {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
