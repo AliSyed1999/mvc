@@ -10,3 +10,4 @@ class LuckyControllerTwig extends AbstractController
 {
 
 }
+

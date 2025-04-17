@@ -34,3 +34,4 @@ För att kunna köra projektet krävs följande:
 
 ```bash
 git clone [din-kopierade-URL]
+
