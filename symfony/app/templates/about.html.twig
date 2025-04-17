@@ -1,12 +1,26 @@
-  {% extends "base.html.twig" %}
+{% extends "base.html.twig" %}
 
 {% block title %}About{% endblock %}
 
 {% block body %}
-    <h1>About</h1>
-    <p>An image which can be clicked on.</p>
-    <a href="{{ asset('img/glider.svg') }}">
-        <img src="{{ asset('img/glider.svg') }}" alt="">
-        <link rel="icon" href="{{ asset('img/glider.svg') }}">
-    </a>
+    <div class="about-container">
+        <div class="column">
+            <h1>Om kursen MVC</h1>
+            <p>Kursen <strong>MVC</strong> (Model-View-Controller) handlar om att bygga strukturerade PHP-applikationer med separerade ansvarsområden för data, logik och presentation.</p>
+            <p>Syftet är att ge förståelse för hur man bygger skalbara, testbara och underhållbara webbapplikationer.</p>
+
+            <ul>
+                <li>📘 <a href="https://github.com/dbwebb-se/mvc" target="_blank">Kursens GitHub-repo</a></li>
+                <li>💻 <a href="https://github.com/AliSyed1999/mvc" target="_blank">Mitt GitHub-repo (huvud)</a></li>
+                <li>🌿 <a href="https://github.com/AliSyed1999/mvc/tree/kmom01v6" target="_blank">Min `kmom01v6`-branch</a></li>
+            </ul>
+        </div>
+
+        <div class="column">
+            <h2>Illustration av MVC</h2>
+            <a href="{{ asset('img/glider.svg') }}" target="_blank">
+                <img src="{{ asset('img/glider.svg') }}" alt="MVC illustration" style="max-width: 100%; height: auto;">
+            </a>
+        </div>
+    </div>
 {% endblock %}

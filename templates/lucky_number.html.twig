@@ -1,9 +1,53 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Magic number{% endblock %}
+{% block title %}Magic Number{% endblock %}
 
 {% block body %}
-    <h1>Magic number</h1>
-    <p>Welcome to my awesome magical homepage.</p>
-    <p>This is the current magic number: {{ number }}</p>
+<style>
+    body {
+        background: linear-gradient(135deg, #1f2937, #4b5563);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #f9fafb;
+        text-align: center;
+        padding: 3rem;
+    }
+
+    h1 {
+        font-size: 3rem;
+        color: #38bdf8;
+        margin-bottom: 1rem;
+        text-shadow: 1px 1px #0f172a;
+    }
+
+    p {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .magic-number {
+        font-size: 4rem;
+        font-weight: bold;
+        background: linear-gradient(90deg, #06b6d4, #3b82f6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: pulse 2s infinite;
+        margin-top: 1rem;
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.7);
+        }
+        50% {
+            transform: scale(1.1);
+            text-shadow: 0 0 20px rgba(6, 182, 212, 1);
+        }
+    }
+</style>
+
+<h1>✨ Magic Number ✨</h1>
+<p>Welcome to my <strong>awesome magical</strong> homepage.</p>
+<p class="magic-number">{{ number }}</p>
+<p>Refresh to discover a new number of wonder.</p>
 {% endblock %}
