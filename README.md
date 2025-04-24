@@ -6,10 +6,9 @@ Detta repository innehåller en rapportsida skapad som en del av MVC-kursen vid 
 
 ## 🖼️ Förhandsvisning
 
-![GitHub-logo](https://upload.wikimedia.org/wikipedia/commons/9/91/GitHub_Invertocat_Logo.svg
+![GitHub-logo](https://upload.wikimedia.org/wikipedia/commons/9/91/GitHub_Invertocat_Logo.svg)
 
-
-> *GitHub är en plattform för versionshantering och samarbete inom programvaruutveckling.*
+> GitHub är en plattform för versionshantering och samarbete inom programvaruutveckling.
 ---
 
 ## 🛠️ Systemkrav
