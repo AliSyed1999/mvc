@@ -6,10 +6,10 @@ Detta repository innehåller en rapportsida skapad som en del av MVC-kursen vid 
 
 ## 🖼️ Förhandsvisning
 
-![image](https://github.com/user-attachments/assets/92f4a456-9fcd-4767-b846-ce924892f18f)
-
+![GitHub-logo](https://upload.wikimedia.org/wikipedia/commons/9/91/GitHub_Invertocat_Logo.svg)
 
 > GitHub är en plattform för versionshantering och samarbete inom programvaruutveckling.
+
 ---
 
 ## 🛠️ Systemkrav
@@ -34,4 +34,5 @@ För att kunna köra projektet krävs följande:
 
 ```bash
 git clone [din-kopierade-URL]
+
 
