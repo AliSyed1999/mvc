@@ -8,41 +8,64 @@
         background: linear-gradient(135deg, #1f2937, #4b5563);
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         color: #f9fafb;
-        text-align: center;
-        padding: 3rem;
+        text-align: left; /* Ändra till vänster */
+        padding: 5rem 3rem;
+        min-height: 100vh;
+        display: flex;
+        justify-content: flex-start; /* Placera innehållet till vänster */
+        align-items: flex-start; /* Justera element till vänster */
+        flex-direction: column;
     }
 
     h1 {
-        font-size: 3rem;
+        font-size: 4rem;
         color: #38bdf8;
-        margin-bottom: 1rem;
-        text-shadow: 1px 1px #0f172a;
+        margin-bottom: 1.5rem;
+        text-shadow: 2px 2px #0f172a;
+        letter-spacing: 1px;
     }
 
     p {
-        font-size: 1.25rem;
-        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
     }
 
     .magic-number {
-        font-size: 4rem;
-        font-weight: bold;
+        font-size: 5rem;
+        font-weight: 700;
         background: linear-gradient(90deg, #06b6d4, #3b82f6);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         animation: pulse 2s infinite;
         margin-top: 1rem;
+        letter-spacing: 2px;
     }
 
     @keyframes pulse {
         0%, 100% {
             transform: scale(1);
-            text-shadow: 0 0 10px rgba(59, 130, 246, 0.7);
+            text-shadow: 0 0 12px rgba(59, 130, 246, 0.7), 0 0 20px rgba(6, 182, 212, 1);
         }
         50% {
             transform: scale(1.1);
-            text-shadow: 0 0 20px rgba(6, 182, 212, 1);
+            text-shadow: 0 0 25px rgba(6, 182, 212, 1), 0 0 35px rgba(59, 130, 246, 0.9);
         }
+    }
+
+    .button {
+        padding: 12px 24px;
+        font-size: 1.25rem;
+        color: #fff;
+        background: #38bdf8;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .button:hover {
+        background: #06b6d4;
     }
 </style>
 
@@ -50,4 +73,6 @@
 <p>Welcome to my <strong>awesome magical</strong> homepage.</p>
 <p class="magic-number">{{ number }}</p>
 <p>Refresh to discover a new number of wonder.</p>
+<button class="button" onclick="window.location.reload()">Get a New Magic Number</button>
+
 {% endblock %}

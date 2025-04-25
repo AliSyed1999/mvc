@@ -3,35 +3,68 @@
 {% block title %}Report Page{% endblock %}
 
 {% block body %}
-    <h1>Rapportsida</h1>
-    <p>Detta är rapportsidan som kommer att innehålla kmom01 till kmom10.</p>
+    <style>
+        body {
+            
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            color: white;
+        }
 
-    <h2>kmom01 Report</h2>
+        .report-container {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 900px;
+            margin: 2rem auto;
+        }
 
-    <h3>Mina förkunskaper och erfarenheter av objektorientering</h3>
-    <p>
-        Jag har tidigare bekantat mig med objektorienterad programmering (OOP) i språk som Java och Python under andra kurser. Jag har lärt mig om begrepp som klasser, objekt, arv och inkapsling, men har inte använt det i större projekt ännu. Det känns som ett logiskt sätt att strukturera kod, speciellt när program växer.
-    </p>
+        a {
+            color: #ffd700;
+        }
 
-    <h3>PHPs modell för klasser och objekt</h3>
-    <p>
-        PHPs sätt att hantera objektorientering påminner mycket om andra språk. För att komma igång behöver man förstå hur man skapar en klass med nyckelordet <code>class</code>, hur man definierar metoder och attribut, samt hur man instansierar ett objekt med <code>new</code>. Även begrepp som konstruktorer, synlighetsnivåer som <code>public</code> och <code>private</code>, och hur man anropar metoder via pilar (->) är grundläggande.
-    </p>
+        code {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
 
-    <h3>Reflektion över me/report-koden</h3>
-    <p>
-        Strukturen i me/report känns genomtänkt och pedagogisk. Det är lätt att följa hur routing i Symfony kopplas till vyer och hur varje rapportsektion separeras. Jag gillar att det är modulärt och lätt att utöka med nya sidor, som t.ex. en för varje kmom.
-    </p>
+        strong {
+            color: #ffcc00;
+        }
+    </style>
 
-    <h3>Tankar kring "PHP The Right Way"</h3>
-    <p>
-        Artikeln är en riktigt bra resurs för både nybörjare och mer erfarna utvecklare. Det jag fastnade mest för var delen om <strong>PSR-standards</strong> och vikten av att skriva kod enligt gemensamma riktlinjer. Jag blev också intresserad av dependency injection och testning i PHP, två områden jag vill förstå bättre framöver. Artikeln känns som ett bra komplement till kursens innehåll.
-    </p>
+    <div class="report-container">
+        <h1>Rapportsida</h1>
+        <p>Detta är rapportsidan som kommer att innehålla kmom01 till kmom10.</p>
 
-    <h3>Min TIL (Today I Learned)</h3>
-    <p>
-        Idag lärde jag mig hur Symfony använder attribut i PHP 8 för att skapa routes, vilket jag inte sett förut. Det gör koden mycket tydligare och mer läsbar jämfört med äldre sätt att definiera routes i YAML. Jag tyckte också det var intressant att se hur man kopplar templates till kontroller med minimal kod.
-    </p>
+        <h2>kmom01 Report</h2>
+
+        <h3>Mina förkunskaper och erfarenheter av objektorientering</h3>
+        <p>
+            Jag har tidigare bekantat mig med objektorienterad programmering (OOP) i språk som Java och Python under andra kurser. Jag har lärt mig om begrepp som klasser, objekt, arv och inkapsling, men har inte använt det i större projekt ännu. Det känns som ett logiskt sätt att strukturera kod, speciellt när program växer.
+        </p>
+
+        <h3>PHPs modell för klasser och objekt</h3>
+        <p>
+            PHPs sätt att hantera objektorientering påminner mycket om andra språk. För att komma igång behöver man förstå hur man skapar en klass med nyckelordet <code>class</code>, hur man definierar metoder och attribut, samt hur man instansierar ett objekt med <code>new</code>. Även begrepp som konstruktorer, synlighetsnivåer som <code>public</code> och <code>private</code>, och hur man anropar metoder via pilar (->) är grundläggande.
+        </p>
+
+        <h3>Reflektion över me/report-koden</h3>
+        <p>
+            Strukturen i me/report känns genomtänkt och pedagogisk. Det är lätt att följa hur routing i Symfony kopplas till vyer och hur varje rapportsektion separeras. Jag gillar att det är modulärt och lätt att utöka med nya sidor, som t.ex. en för varje kmom.
+        </p>
+
+        <h3>Tankar kring "PHP The Right Way"</h3>
+        <p>
+            Artikeln är en riktigt bra resurs för både nybörjare och mer erfarna utvecklare. Det jag fastnade mest för var delen om <strong>PSR-standards</strong> och vikten av att skriva kod enligt gemensamma riktlinjer. Jag blev också intresserad av dependency injection och testning i PHP, två områden jag vill förstå bättre framöver. Artikeln känns som ett bra komplement till kursens innehåll.
+        </p>
+
+        <h3>Min TIL (Today I Learned)</h3>
+        <p>
+            Idag lärde jag mig hur Symfony använder attribut i PHP 8 för att skapa routes, vilket jag inte sett förut. Det gör koden mycket tydligare och mer läsbar jämfört med äldre sätt att definiera routes i YAML. Jag tyckte också det var intressant att se hur man kopplar templates till kontroller med minimal kod.
+        </p>
+    </div>
 {% endblock %}
-
-
