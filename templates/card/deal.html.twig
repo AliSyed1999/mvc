@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dela Kort{% endblock %}
+
+{% block body %}
+<h1>Dela Kort</h1>
+
+<p>Delat ut {{ hands|length }} händer. {{ remaining }} kort kvar i leken.</p>
+
+<style>
+    .player-hand {
+        margin-bottom: 20px;
+    }
+
+    .player-hand h3 {
+        text-align: center;
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    .card-container {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .card {
+        width: 60px;
+        height: 90px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        background-color: white;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .card.red {
+        color: red;
+    }
+
+    .card.black {
+        color: black;
+    }
+
+    .card .value {
+        font-weight: bold;
+    }
+
+    .card .suit {
+        font-size: 28px;
+    }
+</style>
+
+{% for hand in hands %}
+    <div class="player-hand">
+        <h3>Spelare {{ loop.index }}</h3>
+        <div class="card-container">
+            {% for card in hand %}
+                {% set symbol = {
+                    'Hearts': '♥',
+                    'Diamonds': '♦',
+                    'Clubs': '♣',
+                    'Spades': '♠'
+                }[card.getSuit()] %}
+
+                {% set colorClass = card.getSuit() in ['Hearts', 'Diamonds'] ? 'red' : 'black' %}
+
+                <div class="card {{ colorClass }}">
+                    <div class="value">{{ card.getValue() }}</div>
+                    <div class="suit">{{ symbol }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}

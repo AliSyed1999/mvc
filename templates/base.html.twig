@@ -33,6 +33,18 @@
             <li><a href="{{ path('lucky') }}">Lucky Number</a></li>
             <li><a href="{{ path('report') }}">Rapport</a></li>
             <li><a href="{{ path('report_kmom01') }}">Redovisning</a></li>
+            <li><a href="{{ path('report_kmom02') }}">kmom02</a></li>
+            <li><a href="{{ path('kort') }}">kort</a></li>
+
+            <!-- Nya länkar för kortlek -->
+            <li><a href="{{ path('card_deck') }}">Visa kortlek</a></li>
+            <li><a href="{{ path('card_shuffle') }}">Blanda kortlek</a></li>
+            <li><a href="{{ path('card_draw_multiple', { number: 3 }) }}">Dra 3 kort</a></li>
+            <li><a href="{{ path('card_deal', { players: 2, cards: 5 }) }}">Dela ut kort</a></li>
+
+            <!-- Sessionhantering -->
+            <li><a href="{{ path('session_debug') }}">Visa session</a></li>
+            <li><a href="{{ path('session_delete') }}">Rensa session</a></li>
         </ul>
     </nav>
 

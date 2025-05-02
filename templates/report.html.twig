@@ -4,7 +4,60 @@
 
 {% block body %}
     <style>
-        
+    body {
+        background-image: linear-gradient(rgba(30, 30, 60, 0.8), rgba(30, 30, 60, 0.8)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
+        font-family: 'Segoe UI', 'Arial', sans-serif;
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    h1, h2 {
+        font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #ffd700;
+        margin-top: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 8px #222;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        text-shadow: 1px 1px 6px #222;
+    }
+
+    .report-container {
+        background: rgba(20, 20, 40, 0.85);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        border-radius: 16px;
+        padding: 2.5rem 2rem;
+        max-width: 850px;
+        margin: 3rem auto;
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: #e0e0e0;
+        margin-bottom: 1.2rem;
+    }
+
+    a {
+        color: #ffd700;
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+
+    a:hover {
+        color: #fff176;
+        text-decoration: underline;
+    }
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
@@ -33,7 +86,7 @@
         <p>Detta är kmom01 rapportsidan.</p>
         <p>Välkommen till kmom01 redovisningen!</p>
 
-        <h2>kmom02 Rapport</h2>
+       <h2><a href="{{ path('report_kmom02') }}">kmom02 Rapport</a></h2>
         <p>Detta är kmom02 rapportsidan.</p>
         <p>Välkommen till kmom02 redovisningen!</p>
 

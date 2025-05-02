@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blandad Kortlek{% endblock %}
+
+{% block body %}
+<h1>Blandad Kortlek</h1>
+
+<button id="shuffleBtn">🔄 Blanda igen</button>
+
+<div id="cardContainer" class="card-container">
+    {% for card in cards %}
+        <div class="card {{ card.getSuit() in ['Hearts', 'Diamonds'] ? 'red' : 'black' }}">
+            <div class="value">{{ card.getValue() }}</div>
+            <div class="suit">
+                {{ {
+                    'Hearts': '♥',
+                    'Diamonds': '♦',
+                    'Clubs': '♣',
+                    'Spades': '♠'
+                }[card.getSuit()] }}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<style>
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+        justify-content: center;
+    }
+
+    .card {
+        width: 60px;
+        height: 90px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        background-color: white;
+        font-size: 18px;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(-20px);
+        animation: fadeInUp 0.3s ease forwards;
+    }
+
+    .card.red { color: red; }
+    .card.black { color: black; }
+
+    .value { font-weight: bold; }
+    .suit { font-size: 24px; }
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+<script>
+    const suits = {
+        'Hearts': '♥',
+        'Diamonds': '♦',
+        'Clubs': '♣',
+        'Spades': '♠'
+    };
+
+    document.getElementById('shuffleBtn').addEventListener('click', async () => {
+        const res = await fetch('/card/deck/shuffle/json');
+        const data = await res.json();
+
+        const container = document.getElementById('cardContainer');
+        container.innerHTML = '';
+
+        data.cards.forEach((card, index) => {
+            const cardDiv = document.createElement('div');
+            cardDiv.className = 'card ' + (['Hearts', 'Diamonds'].includes(card.suit) ? 'red' : 'black');
+            cardDiv.style.animationDelay = `${index * 0.03}s`;
+
+            cardDiv.innerHTML = `
+                <div class="value">${card.value}</div>
+                <div class="suit">${suits[card.suit]}</div>
+            `;
+
+            container.appendChild(cardDiv);
+        });
+    });
+</script>
+{% endblock %}

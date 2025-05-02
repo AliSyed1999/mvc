@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Visa Session{% endblock %}
+
+{% block body %}
+<h1>Sessionsinnehåll</h1>
+
+{# Flash messages for notices #}
+{% for label, messages in app.flashes('notice') %}
+    <div class="flash-{{ label }}">
+        {{ messages|join(', ') }}
+    </div>
+{% endfor %}
+
+{# Display session content #}
+{% if app.session is not empty %}
+    <h3>Aktuell session:</h3>
+    <pre>{{ dump(app.session.all) }}</pre>
+{% else %}
+    <p>Sessionen är tom.</p>
+{% endif %}
+{% endblock %}

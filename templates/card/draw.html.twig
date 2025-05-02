@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dra Kort{% endblock %}
+
+{% block body %}
+<h1>Dra Kort</h1>
+
+<p>Du har dragit {{ cards|length }} kort. {{ remaining }} kort kvar i leken.</p>
+
+<style>
+    .card-container {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .card {
+        width: 60px;
+        height: 90px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        background-color: white;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .card.red {
+        color: red;
+    }
+
+    .card.black {
+        color: black;
+    }
+
+    .card .value {
+        font-weight: bold;
+    }
+
+    .card .suit {
+        font-size: 28px;
+    }
+</style>
+
+<div class="card-container">
+    {% for card in cards %}
+        {% set symbol = {
+            'Hearts': '♥',
+            'Diamonds': '♦',
+            'Clubs': '♣',
+            'Spades': '♠'
+        }[card.getSuit()] %}
+
+        {% set colorClass = card.getSuit() in ['Hearts', 'Diamonds'] ? 'red' : 'black' %}
+
+        <div class="card {{ colorClass }}">
+            <div class="value">{{ card.getValue() }}</div>
+            <div class="suit">{{ symbol }}</div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Om Kortspelet{% endblock %}
+
+{% block body %}
+    <style>
+        /* CSS för att flytta innehåll högre upp på sidan */
+        body {
+            margin-top: 0;  /* Tar bort eventuell standardmarginal överst på sidan */
+        }
+
+        .uml-container {
+            text-align: center;  /* Centrerar bilden horisontellt */
+            margin-bottom: 30px; /* Lite utrymme under bilden */
+        }
+
+        .uml-image {
+            max-width: 100%;      /* Gör så att bilden inte blir bredare än föräldrakontainern */
+            height: auto;         /* Bevarar bildens proportioner */
+            border-radius: 8px;   /* Valfritt: rundade hörn för en snyggare effekt */
+        }
+
+        /* Justera texten för att minska avståndet högst upp på sidan */
+        h1, p {
+            margin-top: 0;    /* Ta bort övre marginal från rubrik och text */
+            padding-top: 0;   /* Ta bort eventuell padding på toppen */
+        }
+    </style>
+
+    <h1>Om Kortspelet</h1>
+
+    <p>Kortspelet är ett strategiskt spel där spelarna försöker överlista sina motståndare genom att använda en kortlek med olika krafter och förmågor. Spelet följer specifika regler och kräver både beslutskraft, timing och strategi för att vinna. I detta system representerar varje kort ett objekt med specifika egenskaper och handlingar, vilket gör varje spelomgång unik och utmanande.</p>
+
+    <p>Här är UML-diagrammet som illustrerar den centrala strukturen i kortspelsystemet. Diagrammet visar relationerna mellan de olika komponenterna, såsom korten, spelarna och spel-logiken som styr spelets gång.</p>
+
+    <div class="uml-container">
+        <img src="{{ asset('img/uml.jpg') }}" alt="UML-diagram över kortspelsystemet" class="uml-image">
+    </div>
+
+    <p>UML (Unified Modeling Language) är ett diagram som ger en övergripande bild av systemets struktur. Diagrammet visar hur de olika objekten i spelet är sammanlänkade, exempelvis hur korten interagerar med spelarna och hur spel-logiken styr spelets flöde. Detta säkerställer att varje spelomgång är unik och engagerande.</p>
+
+    <p>Genom att förstå systemets struktur via UML-diagrammet får både utvecklare och spelare en bättre insikt i hur spelet fungerar bakom kulisserna. Diagrammet är även användbart för felsökning, vidareutveckling eller tillägg av nya funktioner, vilket gör att spelet kan växa och förbli intressant över tid.</p>
+{% endblock %}
