@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -42,8 +41,7 @@ class DeckController extends AbstractController
     #[Route('/api/deck', name: 'api_deck', methods: ['GET'])]
     public function getDeck(): JsonResponse
     {
-        $deck = $this->getFullDeck();
-        return $this->json(['deck' => $deck]);
+        return $this->json(['deck' => $this->getFullDeck()]);
     }
 
     #[Route('/api/deck/shuffle', name: 'api_shuffle', methods: ['POST'])]
@@ -73,10 +71,15 @@ class DeckController extends AbstractController
         ]);
     }
 
-    #[Route('/api/deck/draw/{number}', name: 'api_draw_many', methods: ['POST'])]
+    #[Route('/api/deck/draw/{number<\d+>}', name: 'api_draw_many', methods: ['POST'])]
     public function drawCards(int $number, SessionInterface $session): JsonResponse
     {
         $deck = $session->get('deck', []);
+
+        if ($number < 1) {
+            return $this->json(['error' => 'Antalet kort måste vara minst 1'], 400);
+        }
+
         if ($number > count($deck)) {
             return $this->json(['error' => 'Inte tillräckligt med kort kvar'], 400);
         }
@@ -90,15 +93,15 @@ class DeckController extends AbstractController
         ]);
     }
 
-    #[Route('/api/deck/deal/{players}/{cards}', name: 'api_deal', methods: ['POST'])]
+    #[Route('/api/deck/deal/{players<\d+>}/{cards<\d+>}', name: 'api_deal', methods: ['POST'])]
     public function dealCards(int $players, int $cards, SessionInterface $session): JsonResponse
     {
+        $deck = $session->get('deck', []);
+        $totalNeeded = $players * $cards;
+
         if ($players < 1 || $cards < 1) {
             return $this->json(['error' => 'Antal spelare och kort måste vara minst 1'], 400);
         }
-
-        $deck = $session->get('deck', []);
-        $totalNeeded = $players * $cards;
 
         if (empty($deck)) {
             return $this->json(['error' => 'Kortleken är slut eller inte blandad'], 400);
@@ -109,8 +112,8 @@ class DeckController extends AbstractController
         }
 
         $hands = [];
-        for ($p = 1; $p <= $players; $p++) {
-            $hands["player$p"] = array_splice($deck, 0, $cards);
+        for ($i = 1; $i <= $players; $i++) {
+            $hands["player$i"] = array_splice($deck, 0, $cards);
         }
 
         $session->set('deck', $deck);

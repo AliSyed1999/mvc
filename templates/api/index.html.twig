@@ -3,9 +3,58 @@
 {% block title %}API Overview{% endblock %}
 
 {% block body %}
-    <h1>API Endpoints</h1>
+    <h1>API – JSON Endpoints</h1>
+
     <ul>
-        <li><a href="{{ path('api_quote') }}">/api/quote</a> – Dagens citat i JSON-format</li>
+        <li>
+            <strong>GET /api/deck</strong> – Returnerar en sorterad kortlek.
+            <br>
+            <a href="{{ path('api_deck') }}" target="_blank">Visa JSON</a>
+        </li>
+
+        <li>
+            <strong>POST /api/deck/shuffle</strong> – Blandar kortleken och sparar i session.
+            <form action="{{ path('api_shuffle') }}" method="POST">
+                <button type="submit">Blanda kortleken</button>
+            </form>
+        </li>
+
+        <li>
+            <strong>POST /api/deck/draw</strong> – Drar ett kort från kortleken.
+            <form action="{{ path('api_draw_one') }}" method="POST">
+                <button type="submit">Dra ett kort</button>
+            </form>
+        </li>
+
+        <li>
+            <strong>POST /api/deck/draw/{number}</strong> – Drar flera kort.
+            <form method="POST" onsubmit="event.preventDefault(); this.querySelector('button').click();">
+                <label for="draw-number">Antal kort att dra:</label>
+                <input type="number" name="number" value="3" min="1" id="draw-number">
+                <button type="button" onclick="
+                    const n = document.getElementById('draw-number').value;
+                    const form = this.closest('form');
+                    form.action = '/api/deck/draw/' + n;
+                    form.submit();
+                ">Dra kort</button>
+            </form>
+        </li>
+
+        <li>
+            <strong>POST /api/deck/deal/{players}/{cards}</strong> – Delar ut kort till spelare.
+            <form method="POST" onsubmit="event.preventDefault(); this.querySelector('button').click();">
+                <label for="players">Spelare:</label>
+                <input type="number" name="players" value="2" min="1" id="players">
+                <label for="cards">Kort per spelare:</label>
+                <input type="number" name="cards" value="5" min="1" id="cards">
+                <button type="button" onclick="
+                    const p = document.getElementById('players').value;
+                    const c = document.getElementById('cards').value;
+                    const form = this.closest('form');
+                    form.action = '/api/deck/deal/' + p + '/' + c;
+                    form.submit();
+                ">Dela ut kort</button>
+            </form>
+        </li>
     </ul>
 {% endblock %}
-

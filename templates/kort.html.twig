@@ -1,43 +1,76 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Om Kortspelet{% endblock %}
+{% set hide_main_nav = true %}
+
+{% block title %}Kortspelet - Funktioner{% endblock %}
 
 {% block body %}
     <style>
-        /* CSS för att flytta innehåll högre upp på sidan */
         body {
-            margin-top: 0;  /* Tar bort eventuell standardmarginal överst på sidan */
+            margin-top: 0;
         }
 
-        .uml-container {
-            text-align: center;  /* Centrerar bilden horisontellt */
-            margin-bottom: 30px; /* Lite utrymme under bilden */
+        .card-links {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background-color: #f8f8f8;
+            border-radius: 8px;
         }
 
-        .uml-image {
-            max-width: 100%;      /* Gör så att bilden inte blir bredare än föräldrakontainern */
-            height: auto;         /* Bevarar bildens proportioner */
-            border-radius: 8px;   /* Valfritt: rundade hörn för en snyggare effekt */
+        .card-links ul {
+            list-style-type: none;
+            padding: 0;
         }
 
-        /* Justera texten för att minska avståndet högst upp på sidan */
-        h1, p {
-            margin-top: 0;    /* Ta bort övre marginal från rubrik och text */
-            padding-top: 0;   /* Ta bort eventuell padding på toppen */
+        .card-links li {
+            margin: 0.5rem 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 
-    <h1>Om Kortspelet</h1>
+    <h1>Kortspelet - Funktioner</h1>
 
-    <p>Kortspelet är ett strategiskt spel där spelarna försöker överlista sina motståndare genom att använda en kortlek med olika krafter och förmågor. Spelet följer specifika regler och kräver både beslutskraft, timing och strategi för att vinna. I detta system representerar varje kort ett objekt med specifika egenskaper och handlingar, vilket gör varje spelomgång unik och utmanande.</p>
+    <p>Välkommen till kortspelet! Här kan du använda olika funktioner för att interagera med kortleken och sessionen. Nedan följer de olika tillgängliga funktionerna:</p>
 
-    <p>Här är UML-diagrammet som illustrerar den centrala strukturen i kortspelsystemet. Diagrammet visar relationerna mellan de olika komponenterna, såsom korten, spelarna och spel-logiken som styr spelets gång.</p>
-
-    <div class="uml-container">
-        <img src="{{ asset('img/uml.jpg') }}" alt="UML-diagram över kortspelsystemet" class="uml-image">
+    <!-- Kortfunktioner -->
+    <div class="card-links">
+        <h2>Funktioner för kortleken</h2>
+        <ul>
+            <li><a href="{{ path('card_deck') }}" target="_blank">Visa kortlek</a></li>
+            <li><a href="{{ path('card_shuffle') }}" target="_blank">Blanda kortlek</a></li>
+            <li><a href="{{ path('card_draw_multiple', { number: 3 }) }}" target="_blank">Dra flera kort (3)</a></li>
+            <li><a href="{{ path('card_deal', { players: 2, cards: 5 }) }}" target="_blank">Dela ut kort</a></li>
+        </ul>
     </div>
 
-    <p>UML (Unified Modeling Language) är ett diagram som ger en övergripande bild av systemets struktur. Diagrammet visar hur de olika objekten i spelet är sammanlänkade, exempelvis hur korten interagerar med spelarna och hur spel-logiken styr spelets flöde. Detta säkerställer att varje spelomgång är unik och engagerande.</p>
+    <!-- Sessionhantering -->
+    <div class="card-links">
+        <h2>Sessionhantering</h2>
+        <ul>
+            <li><a href="{{ path('session_debug') }}" target="_blank">Visa session</a></li>
+            <li><a href="{{ path('session_delete') }}" target="_blank">Rensa session</a></li>
+        </ul>
+    </div>
 
-    <p>Genom att förstå systemets struktur via UML-diagrammet får både utvecklare och spelare en bättre insikt i hur spelet fungerar bakom kulisserna. Diagrammet är även användbart för felsökning, vidareutveckling eller tillägg av nya funktioner, vilket gör att spelet kan växa och förbli intressant över tid.</p>
+    <!-- Länk till API Index -->
+    <div class="card-links">
+        <h2>API Endpoints</h2>
+        <ul>
+            <li><a href="{{ path('api_index') }}" target="_blank">Visa API – JSON Endpoints</a></li>
+        </ul>
+    </div>
+
+    <!-- Tillbaka till huvudmenyn -->
+    <p>
+        <a href="{{ path('home') }}" target="_blank">⬅️ Tillbaka till huvudmenyn</a>
+    </p>
+
 {% endblock %}

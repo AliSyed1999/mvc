@@ -11,6 +11,7 @@ use App\Card\Deck;
 use App\Card\Card;
 
 class CardController extends AbstractController
+
 {
     private function getOrCreateDeck(SessionInterface $session): Deck
     {
@@ -107,5 +108,11 @@ class CardController extends AbstractController
             'hands' => $hands,
             'remaining' => $deck->count()
         ]);
+    }
+
+    #[Route('/kort', name: 'kort')]
+    public function kort(): Response
+    {
+        return $this->render('kort.html.twig');
     }
 }

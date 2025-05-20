@@ -1,125 +1,113 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Rapportsida{% endblock %}
+{% block title %}Rapportsida – Webbutveckling{% endblock %}
 
 {% block body %}
     <style>
-    body {
-        background-image: linear-gradient(rgba(30, 30, 60, 0.8), rgba(30, 30, 60, 0.8)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
-        font-family: 'Segoe UI', 'Arial', sans-serif;
-        min-height: 100vh;
-        margin: 0;
-    }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap');
 
-    h1, h2 {
-        font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
-        font-weight: 700;
-        letter-spacing: 1px;
-        color: #ffd700;
-        margin-top: 1.5rem;
-    }
-
-    h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        text-shadow: 2px 2px 8px #222;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-        text-shadow: 1px 1px 6px #222;
-    }
-
-    .report-container {
-        background: rgba(20, 20, 40, 0.85);
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        border-radius: 16px;
-        padding: 2.5rem 2rem;
-        max-width: 850px;
-        margin: 3rem auto;
-        border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    p {
-        font-size: 1.1rem;
-        line-height: 1.7;
-        color: #e0e0e0;
-        margin-bottom: 1.2rem;
-    }
-
-    a {
-        color: #ffd700;
-        text-decoration: none;
-        transition: color 0.2s;
-    }
-
-    a:hover {
-        color: #fff176;
-        text-decoration: underline;
-    }
+        body {
+            background-image: linear-gradient(rgba(30, 30, 60, 0.8), rgba(30, 30, 60, 0.8)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-position: center;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
             color: white;
+            min-height: 100vh;
         }
 
         .report-container {
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 2rem;
-            border-radius: 10px;
-            max-width: 800px;
-            margin: 2rem auto;
+            background: rgba(20, 20, 40, 0.85);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            max-width: 900px;
+            margin: 3rem auto;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+        }
+
+        h1, h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: #ffd700;
+            text-shadow: 1px 1px 6px #222;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            color: #e0e0e0;
         }
 
         a {
             color: #ffd700;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #fff176;
+        }
+
+        code {
+            font-family: 'Source Code Pro', monospace;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 3px 6px;
+            border-radius: 5px;
+            color: #ffcccb;
+        }
+
+        strong {
+            color: #ffcc00;
         }
     </style>
 
     <div class="report-container">
         <h1>Rapportsida</h1>
-        <p>Detta är rapportsidan som innehåller kmom01 till kmom10.</p>
+        <p>Välkommen till rapportsidan för Webbutveckling – här samlas reflektioner från kmom01 till kmom10.</p>
 
         <h2><a href="{{ path('report_kmom01') }}">kmom01 Rapport</a></h2>
-        <p>Detta är kmom01 rapportsidan.</p>
-        <p>Välkommen till kmom01 redovisningen!</p>
+        <p>Detta är rapportsidan för kmom01 – innehåll kommer snart.</p>
 
-       <h2><a href="{{ path('report_kmom02') }}">kmom02 Rapport</a></h2>
-        <p>Detta är kmom02 rapportsidan.</p>
-        <p>Välkommen till kmom02 redovisningen!</p>
+        <h2><a href="{{ path('report_kmom02') }}">kmom02 Rapport</a></h2>
+        <p>Detta är rapportsidan för kmom02 – innehåll kommer snart.</p>
 
         <h2>kmom03 Rapport</h2>
-        <p>Detta är kmom03 rapportsidan.</p>
-        <p>Välkommen till kmom03 redovisningen!</p>
+        <p>Detta är rapportsidan för kmom03 – innehåll kommer snart.</p>
 
         <h2>kmom04 Rapport</h2>
-        <p>Detta är kmom04 rapportsidan.</p>
-        <p>Välkommen till kmom04 redovisningen!</p>
+        <p>Detta är rapportsidan för kmom04 – innehåll kommer snart.</p>
 
         <h2>kmom05 Rapport</h2>
-        <p>Detta är kmom05 rapportsidan.</p>
-        <p>Välkommen till kmom05 redovisningen!</p>
+        <p>Detta är rapportsidan för kmom05 – innehåll kommer snart.</p>
 
         <h2>kmom06 Rapport</h2>
-        <p>Detta är kmom06 rapportsidan.</p>
-        <p>Välkommen till kmom06 redovisningen!</p>
+        <p>Detta är rapportsidan för kmom06 – innehåll kommer snart.</p>
 
         <h2>kmom07 Rapport</h2>
-        <p>Detta är kmom07 rapportsidan.</p>
-        <p>Välkommen till kmom07 redovisningen!</p>
+        <p>Detta är rapportsidan för kmom07 – innehåll kommer snart.</p>
 
         <h2>kmom08 Rapport</h2>
-        <p>Detta är kmom08 rapportsidan.</p>
-        <p>Välkommen till kmom08 redovisningen!</p>
+        <p>Detta är rapportsidan för kmom08 – innehåll kommer snart.</p>
 
         <h2>kmom09 Rapport</h2>
-        <p>Detta är kmom09 rapportsidan.</p>
-        <p>Välkommen till kmom09 redovisningen!</p>
+        <p>Detta är rapportsidan för kmom09 – innehåll kommer snart.</p>
 
         <h2>kmom10 Rapport</h2>
-        <p>Detta är kmom10 rapportsidan.</p>
-        <p>Välkommen till kmom10 redovisningen!</p>
+        <p>Detta är rapportsidan för kmom10 – innehåll kommer snart.</p>
     </div>
 {% endblock %}

@@ -19,6 +19,7 @@
         width: 60px;
         height: 90px;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         border: 2px solid #ccc;
@@ -43,6 +44,31 @@
     .card .suit {
         font-size: 28px;
     }
+
+    .card-links {
+        margin-top: 2rem;
+        padding: 1rem;
+        background-color: #f8f8f8;
+        border-radius: 8px;
+    }
+
+    .card-links ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .card-links li {
+        margin: 0.5rem 0;
+    }
+
+    a {
+        text-decoration: none;
+        color: #007bff;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
 </style>
 
 <div class="card-container">
@@ -62,4 +88,18 @@
         </div>
     {% endfor %}
 </div>
+
+<!-- Länkar till andra funktioner -->
+<div class="card-links">
+    <h2>Fler funktioner</h2>
+    <ul>
+        <li><a href="{{ path('card_shuffle') }}" target="_blank">Blanda kortlek</a></li>
+        <li><a href="{{ path('card_draw_multiple', { number: 3 }) }}" target="_blank">Dra flera kort (3)</a></li>
+        <li><a href="{{ path('card_deal', { players: 2, cards: 5 }) }}" target="_blank">Dela ut kort</a></li>
+        <li><a href="{{ path('session_debug') }}" target="_blank">Visa session</a></li>
+        <li><a href="{{ path('session_delete') }}" target="_blank">Rensa session</a></li>
+        <li><a href="{{ path('home') }}" target="_blank">⬅️ Tillbaka till huvudmenyn</a></li>
+    </ul>
+</div>
+
 {% endblock %}

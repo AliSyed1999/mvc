@@ -4,11 +4,10 @@
 
 {% block body %}
     <style>
-        /* Importera Google Fonts */
+        /* Stilar */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
 
-        /* Allmänna Stilar */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f4f7fc;
@@ -26,7 +25,6 @@
             padding: 20px;
         }
 
-        /* Header */
         header {
             background: linear-gradient(135deg, #6c5ce7, #00bcd4);
             color: white;
@@ -44,7 +42,6 @@
             text-transform: uppercase;
         }
 
-        /* Rapport Container */
         .report-container {
             background-color: #ffffff;
             border-radius: 10px;
@@ -82,7 +79,6 @@
             color: #ff5722;
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 15px 0;
@@ -92,7 +88,6 @@
             border-radius: 10px;
         }
 
-        /* Responsivitet */
         @media (max-width: 768px) {
             .container {
                 width: 90%;
@@ -118,24 +113,24 @@
         </header>
 
         <div class="report-container">
-            <h2>1. Objektorienterade konstruktioner i PHP</h2>
+            <h2>1. Objektorientering i PHP</h2>
             <p>
-                Arv används för att låta en klass ärva funktionalitet från en annan, vilket främjar återanvändning och struktur. Komposition innebär att objekt byggs upp av andra objekt, vilket ger ökad flexibilitet och bättre separation av ansvar. Interface definierar ett kontrakt som klasser måste uppfylla, vilket möjliggör lös koppling och utbytbara implementationer. Traits används för att dela gemensam funktionalitet mellan klasser utan att använda arv, och bidrar till minskad kod upprepning.
+                Arv låter en klass ärva funktionalitet, medan komposition ger större flexibilitet genom sammansättning. Interface definierar kontrakt som klasser måste följa, och traits gör det möjligt att dela funktionalitet utan arv.
             </p>
 
             <h2>2. Min implementation</h2>
             <p>
-                Jag löste uppgiften genom att kombinera arv, komposition och interface för att skapa en tydlig struktur med hög återanvändbarhet. Traits användes där flera klasser behövde samma hjälpfunktioner. Resultatet blev en fungerande lösning med god läsbarhet, men jag ser förbättringspotential i att förfina klassernas ansvar och minska beroenden i vissa delar av koden.
+                Jag använde en kombination av arv, komposition och interface för en strukturerad lösning. Traits minskade kodupprepning. Lösningen är funktionell, men kan förbättras genom mer ansvarsfull uppdelning och minskade beroenden.
             </p>
 
-            <h2>3. Reflektion kring Symfony och MVC</h2>
+            <h2>3. Reflektion över Symfony och MVC</h2>
             <p>
-                Att arbeta med Symfony enligt MVC-modellen har gett mig en djupare förståelse för hur man organiserar applikationskod på ett skalbart och underhållbart sätt. Separationen mellan modell, vy och kontroll främjar tydlighet, men kräver också disciplin och planering för att fullt ut dra nytta av ramverkets möjligheter.
+                Symfony och MVC möjliggör skalbar kodstruktur. Separationen av modell, vy och kontroll kräver noggrant planering för att utnyttja ramverket effektivt.
             </p>
 
             <h2>4. TIL (Today I Learned)</h2>
             <p>
-                Jag har fördjupat min förståelse för hur Symfony hanterar beroendeinjektion, routing och tjänsteregistrering. Jag har också insett värdet av att hålla klasser små, fokuserade och testbara för att underlätta framtida vidareutveckling.
+                Jag har lärt mig mer om Symfony och vikten av små, testbara klasser. Feedback från läraren Marie gav värdefulla insikter som förbättrade mina lösningar.
             </p>
         </div>
 
