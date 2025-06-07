@@ -45,10 +45,10 @@ class LuckyControllerTwig extends AbstractController
         return $this->render('report_kmom02.html.twig');
     }
 
-    #[Route('/kort', name: 'kort')]
+    #[Route('/kort', name: 'card')]
     public function kort(): Response
     {
-        return $this->render('kort.html.twig');
+        return $this->render('card.html.twig');
     }
     #[Route('/api', name: 'api_index', methods: ['GET'])]
     public function index(): Response

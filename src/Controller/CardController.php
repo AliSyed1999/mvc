@@ -2,27 +2,13 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Card\Deck;
-use App\Card\Card;
 
-class CardController extends AbstractController
-
+class CardController extends BaseDeckController
 {
-    private function getOrCreateDeck(SessionInterface $session): Deck
-    {
-        $deck = $session->get('deck');
-        if (!$deck instanceof Deck) {
-            $deck = new Deck();
-            $session->set('deck', $deck);
-        }
-        return $deck;
-    }
-
     #[Route('/card', name: 'card_home')]
     public function index(): Response
     {
@@ -92,27 +78,9 @@ class CardController extends AbstractController
         ]);
     }
 
-    #[Route('/card/deck/deal/{players<\d+>}/{cards<\d+>}', name: 'card_deal', defaults: ['players' => 2, 'cards' => 5])]
-    public function deal(SessionInterface $session, int $players, int $cards): Response
+    #[Route('/kort', name: 'card')]
+    public function card(): Response
     {
-        $deck = $this->getOrCreateDeck($session);
-        $hands = [];
-
-        for ($i = 0; $i < $players; $i++) {
-            $hands[] = $deck->draw($cards);
-        }
-
-        $session->set('deck', $deck);
-
-        return $this->render('card/deal.html.twig', [
-            'hands' => $hands,
-            'remaining' => $deck->count()
-        ]);
-    }
-
-    #[Route('/kort', name: 'kort')]
-    public function kort(): Response
-    {
-        return $this->render('kort.html.twig');
+        return $this->render('card.html.twig');
     }
 }
