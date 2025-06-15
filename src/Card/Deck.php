@@ -49,4 +49,10 @@ class Deck
     {
         return count($this->cards);
     }
+
+    // 🔽 Ny metod för subklasser att kunna modifiera kortleken
+    protected function &getCardsByReference(): array
+    {
+        return $this->cards;
+    }
 }

@@ -78,7 +78,7 @@ class CardController extends BaseDeckController
         ]);
     }
 
-    #[Route('/kort', name: 'card')]
+    #[Route('/card', name: 'card')]
     public function card(): Response
     {
         return $this->render('card.html.twig');
